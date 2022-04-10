@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  node:
+    container_name: connecting_to_mongodb_kubernetes
+    volumes:
+      - .:/usr/src/backend/app
+    build: .
+    ports:
+      - 80:3000
+    env_file:
+      - .env
+    environment:
+      DATABASE_CONNECTION: ${DATABASE_CONNECTION}
+    networks:
+      - local_network
+networks:
+    local_network:
