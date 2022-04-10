@@ -4,9 +4,8 @@ const express = require('express')
 const app = express()
 
 mongoose.Promise = global.Promise
-// const connectionString = process.env.DATABASE_CONNECTION
-const connectionString = "mongodb://admin-user:secret@127.0.0.1:27017"
-mongoose.connect(`${connectionString}/appDB&directConnection=true&serverSelectionTimeoutMS=2000"`).catch((err) => {
+const connectionString = process.env.DATABASE_CONNECTION
+mongoose.connect(`${connectionString}`).catch((err) => {
     console.log(err)
 })
 
